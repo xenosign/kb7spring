@@ -1,10 +1,16 @@
 package org.example.kb7spring.config;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
+import java.io.IOException;
 
 @Configuration
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -35,5 +41,24 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
         characterEncodingFilter.setEncoding("UTF-8");
         characterEncodingFilter.setForceEncoding(true);
         return new Filter[]{characterEncodingFilter};
+    }
+
+    @Value("${file.location}")
+    private String location;
+    @Value("${file.max-file-size}")
+    private long maxFileSize;
+    @Value("${file.max-request-size}")
+    private long maxRequestSize;
+    @Value("${file.file-size-threshold}")
+    private int fileSizeThreshold;
+
+    @Bean
+    public MultipartResolver multipartResolver() throws IOException {
+        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+        resolver.setUploadTempDir(new FileSystemResource(location));
+        resolver.setMaxUploadSize(maxFileSize);
+        resolver.setMaxUploadSizePerFile(maxRequestSize);
+        resolver.setMaxInMemorySize(fileSizeThreshold);
+        return resolver;
     }
 }
