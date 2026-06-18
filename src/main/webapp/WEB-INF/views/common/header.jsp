@@ -9,4 +9,8 @@
     <h3>회원 V1</h3>
     <a href="/member/v1">회원 홈</a>
     <a href="/member/v1/list">회원 목록</a>
+
+    <h3>회원 V2</h3>
+    <a href="/member/v2">회원 홈</a>
+    <a href="/member/v2/list">회원 목록</a>
 </div>

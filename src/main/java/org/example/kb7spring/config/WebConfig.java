@@ -42,23 +42,4 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
         characterEncodingFilter.setForceEncoding(true);
         return new Filter[]{characterEncodingFilter};
     }
-
-    @Value("${file.location}")
-    private String location;
-    @Value("${file.max-file-size}")
-    private long maxFileSize;
-    @Value("${file.max-request-size}")
-    private long maxRequestSize;
-    @Value("${file.file-size-threshold}")
-    private int fileSizeThreshold;
-
-    @Bean
-    public MultipartResolver multipartResolver() throws IOException {
-        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-        resolver.setUploadTempDir(new FileSystemResource(location));
-        resolver.setMaxUploadSize(maxFileSize);
-        resolver.setMaxUploadSizePerFile(maxRequestSize);
-        resolver.setMaxInMemorySize(fileSizeThreshold);
-        return resolver;
-    }
 }
