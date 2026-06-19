@@ -13,4 +13,10 @@
     <h3>회원 V2</h3>
     <a href="/member/v2">회원 홈</a>
     <a href="/member/v2/list">회원 목록</a>
+
+    <h3>교육생 V1</h3>
+    <a href="/student/v1">교육생 홈</a>
+    <a href="/student/v1/list">교육생 목록</a>
+    <a href="/student/v1/add">교육생 추가</a>
+    <a href="/student/v1/search">교육생 검색</a>
 </div>
