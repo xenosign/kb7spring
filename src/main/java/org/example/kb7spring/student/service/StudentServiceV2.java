@@ -5,6 +5,7 @@ import org.example.kb7spring.student.domain.Student;
 import org.example.kb7spring.student.dto.StudentDto;
 import org.example.kb7spring.student.dto.StudentSearchDto;
 import org.example.kb7spring.student.repository.StudentRepository;
+import org.example.kb7spring.student.repository.StudentRepositoryV2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,8 +15,8 @@ import java.util.List;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class StudentServiceV1 implements StudentService {
-    private final StudentRepository studentRepository;
+public class StudentServiceV2 {
+    private final StudentRepositoryV2 studentRepository;
 
     public List<StudentDto> getStudentList() {
         List<Student> entityList = studentRepository.findAll();
@@ -42,7 +43,7 @@ public class StudentServiceV1 implements StudentService {
     }
 
     public List<StudentDto> searchStudentList(StudentSearchDto studentSearchDto) {
-        List<Student> entityList = studentRepository.search(studentSearchDto);
+        List<Student> entityList = studentRepository.findByNameOrRole(studentSearchDto.getName(), studentSearchDto.getRole());
         List<StudentDto> dtoList = new ArrayList<>();
 
         for (Student student : entityList) {

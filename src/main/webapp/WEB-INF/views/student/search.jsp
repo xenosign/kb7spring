@@ -25,5 +25,6 @@
         <li>${student.name} / ${student.role} / ${student.specialty} / ${student.status}</li>
     </c:forEach>
 </ul>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

@@ -24,6 +24,7 @@ import javax.sql.DataSource;
                 classes = Controller.class
         )
 )
+@Import(JpaConfig.class)
 public class RootConfig {
         @Value("${jdbc.driver}") String driver;
         @Value("${jdbc.url}") String url;
@@ -56,10 +57,9 @@ public class RootConfig {
 
         // 위에서 설정한 DataSource 를 받아서 트랜잭션을 관리하는 매니저를 등록하는 Bean
         // 이 매니저 등록이 없으면 스프링 내부에서 @Transactional 어노테이션 사용 불가
-        @Bean
-        public DataSourceTransactionManager transactionManager(){
-                DataSourceTransactionManager manager = new DataSourceTransactionManager(dataSource());
-                return manager;
-        }
-
+//        @Bean
+//        public DataSourceTransactionManager transactionManager(){
+//                DataSourceTransactionManager manager = new DataSourceTransactionManager(dataSource());
+//                return manager;
+//        }
 }
