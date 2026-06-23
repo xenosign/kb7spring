@@ -5,10 +5,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.kb7spring.student.domain.Student;
 import org.example.kb7spring.student.dto.StudentSearchDto;
 import org.example.kb7spring.student.mapper.StudentMapper;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Primary
 @Slf4j
 @Repository
 @RequiredArgsConstructor
