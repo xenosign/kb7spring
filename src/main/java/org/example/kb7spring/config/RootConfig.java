@@ -25,6 +25,7 @@ import javax.sql.DataSource;
         )
 )
 @Import(JpaConfig.class)
+@EnableAspectJAutoProxy
 public class RootConfig {
         @Value("${jdbc.driver}") String driver;
         @Value("${jdbc.url}") String url;
