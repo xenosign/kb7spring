@@ -77,4 +77,9 @@ public class StudentControllerV2 {
 //        studentService.addStudent(studentDto);
 //        return "redirect:/student/v1/list";
 //    }
+
+    @GetMapping("/error")
+    public void error() {
+        throw new RuntimeException("알 수 없는 에러");
+    }
 }

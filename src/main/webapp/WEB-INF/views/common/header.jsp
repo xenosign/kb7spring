@@ -25,4 +25,14 @@
     <a href="/student/v2/list">교육생 목록</a>
     <a href="/student/v2/add">교육생 추가</a>
     <a href="/student/v2/search">교육생 검색</a>
+    <a href="/404">404</a>
+    <a href="/student/v2/error">error</a>
+
+
+
+
+
+
+
+
 </div>
